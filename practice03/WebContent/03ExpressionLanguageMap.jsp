@@ -1,0 +1,40 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page import="java.util.*" %>
+<%@ page import="java.text.*, java.net.InetAddress" %> 
+<%@ include file="common.jsp" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>03 Expression Language Map - jsp에서 EL 사용하기</title>
+</head>
+<body>
+<%
+
+	String title = "I love kkt Map  + EL Test";
+	String [] color = {"gold", "deeppink", "deepskyblue"};
+	
+	Map map = new HashMap();
+	map.put("name1",color[0]);
+	map.put("name2",color[1]);
+	map.put("name3",color[2]);
+	
+	request.setAttribute("title",title);
+	request.setAttribute("color",color);
+	request.setAttribute("map",map);
+	
+%>
+<h3>${title}</h3>
+<%
+	for(int i=0;i<color.length;i++){
+%>
+	<h3>color : <%=color[i]%></h3>
+<%
+	}
+%>
+<h3>${map}</h3>
+</body>
+</html>

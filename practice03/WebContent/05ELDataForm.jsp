@@ -1,0 +1,63 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page import="java.util.*" %>
+<%@ page import="java.text.*, java.net.InetAddress" %> 
+<%@ include file="common.jsp" %>
+<%
+
+	request.setCharacterEncoding("UTF-8");
+	response.setCharacterEncoding("UTF-8");
+	response.setContentType("text/html; charset=UTF-8");
+	
+	
+	
+%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>05 EL Data Form</title>
+</head>
+<body>
+	<h2>EL FormData Transmission</h2>
+	<form action="05ELParam" method="post">
+		<label for="id">아이디</label> :
+		<input type="text" name="id" id="id"><br><br>
+		당신이 좋아하는 스포츠는 무엇입니까?<br>
+		<input type="checkbox" id="hobby1" name="hobby" value="축구">
+		<label for="hobby1">축구</label><br>
+		<input type="checkbox" id="hobby2" name="hobby" value="농구">
+		<label for="hobby2">농구</label><br><br>
+		
+		<input type="submit" value="전송">&nbsp;&nbsp;
+		<input type="reset" value="취소">
+	</form>
+	
+	<h2>practice</h2>
+	<form action="05ELParam" method="post">
+		과목<br>
+		<input type="checkbox" id="subj1" name="subj" value="국어">
+		<label for="subj1">국어</label><br>
+		<input type="checkbox" id="subj2" name=subj" value="영어">
+		<label for="subj2">영어</label>
+		<input type="checkbox" id="subj3" name="subj" value="과학"> 
+	
+	</form>
+	
+	<h2>scope 데이터의 표현식 대 표현언어</h2>
+	<p><%=pageName %> : ${pname }</p>
+	<p><%=id1 %> : ${param.id }</p>
+	
+	<h4>좋아하는 스포츠</h4>
+	<ul>
+		<li>첫번째 - <%=hobby[0] %> : ${paramValues.hobby[0] }</li>
+		<li>두번째- <%=hobby[1] %> : ${paramValues.hobby[1] }</li>
+	</ul>
+	
+	
+	
+</body>
+</html>
